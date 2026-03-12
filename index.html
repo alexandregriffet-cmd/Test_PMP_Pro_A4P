@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PMP A4P – Profil Mental de Performance</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="hero card no-print">
+      <div>
+        <p class="eyebrow">Académie de Performances – A4P</p>
+        <h1>Profil Mental de Performance</h1>
+        <p class="lead">Outil de passation structuré pour jeunes sportifs : 8 dimensions mentales, équivalence cognitive inspirée MBTI, préférence motrice associée et rapport narratif imprimable.</p>
+        <div class="hero-tags">
+          <span>136 questions</span>
+          <span>8 dimensions</span>
+          <span>MBTI inspiré</span>
+          <span>Action Types associée</span>
+        </div>
+      </div>
+      <div class="hero-actions">
+        <button id="startBtn" class="btn primary">Commencer le test</button>
+        <button id="demoBtn" class="btn secondary">Charger une démo</button>
+      </div>
+    </header>
+
+    <section id="introSection" class="card">
+      <h2>Informations du sportif</h2>
+      <div class="grid two">
+        <label>Nom complet
+          <input id="athleteName" type="text" placeholder="Prénom Nom" />
+        </label>
+        <label>Âge
+          <input id="athleteAge" type="number" min="10" max="30" placeholder="16" />
+        </label>
+        <label>Sport pratiqué
+          <input id="athleteSport" type="text" placeholder="Football, tennis, judo..." />
+        </label>
+        <label>Niveau
+          <input id="athleteLevel" type="text" placeholder="Club, régional, national..." />
+        </label>
+        <label>Club / structure
+          <input id="athleteClub" type="text" placeholder="Nom du club" />
+        </label>
+        <label>Date de passation
+          <input id="testDate" type="date" />
+        </label>
+      </div>
+      <div class="notice">
+        <strong>Cadre d’utilisation :</strong> ce test est un outil d’accompagnement et de lecture du fonctionnement mental sportif. Il ne constitue pas un diagnostic médical ni un test MBTI officiel.
+      </div>
+    </section>
+
+    <section id="testSection" class="card hidden no-print">
+      <div class="progress-meta">
+        <div>
+          <p class="eyebrow" id="blockLabel">Bloc 1 / 9</p>
+          <h2 id="questionCounter">Question 1 / 136</h2>
+        </div>
+        <div class="progress-box">
+          <div class="progress-bar"><div id="progressFill"></div></div>
+          <p id="progressText">0 % complété</p>
+        </div>
+      </div>
+      <div class="question-card">
+        <p id="questionDimension" class="dimension-pill">Activation</p>
+        <h3 id="questionText">Question</h3>
+        <div id="answers" class="answers"></div>
+      </div>
+      <div class="nav-row">
+        <button id="prevBtn" class="btn secondary">Précédent</button>
+        <button id="saveBtn" class="btn secondary">Sauvegarder</button>
+        <button id="nextBtn" class="btn primary">Suivant</button>
+      </div>
+    </section>
+
+    <section id="resultSection" class="hidden">
+      <article class="card result-header">
+        <div>
+          <p class="eyebrow">Passeport Mental du Sportif A4P</p>
+          <h2 id="resultName">Résultats</h2>
+          <p id="resultMeta" class="lead"></p>
+        </div>
+        <div class="result-actions no-print">
+          <button id="printBtn" class="btn primary">Imprimer / PDF</button>
+          <button id="exportBtn" class="btn secondary">Exporter JSON</button>
+          <button id="restartBtn" class="btn ghost">Recommencer</button>
+        </div>
+      </article>
+
+      <article class="card">
+        <h3>Signature mentale</h3>
+        <div class="signature-grid">
+          <div><span class="label">Indice global A4P</span><strong id="globalIndex">--</strong></div>
+          <div><span class="label">Profil dominant</span><strong id="dominantProfile">--</strong></div>
+          <div><span class="label">Type cognitif probable</span><strong id="mbtiType">--</strong></div>
+          <div><span class="label">Préférence motrice probable</span><strong id="motorType">--</strong></div>
+          <div><span class="label">Indice pression</span><strong id="pressureIndex">--</strong></div>
+          <div><span class="label">Indice stabilité</span><strong id="stabilityIndex">--</strong></div>
+        </div>
+      </article>
+
+      <article class="card">
+        <h3>Carte mentale du sportif</h3>
+        <div class="radar-wrap">
+          <canvas id="radarCanvas" width="520" height="520"></canvas>
+          <div id="scoreList" class="score-list"></div>
+        </div>
+      </article>
+
+      <article class="card">
+        <h3>Portrait mental global</h3>
+        <div id="portraitText" class="report-text"></div>
+      </article>
+
+      <article class="card">
+        <h3>Forces mentales</h3>
+        <div id="strengthsText" class="report-text"></div>
+      </article>
+
+      <article class="card">
+        <h3>Fonctionnement sous pression</h3>
+        <div id="pressureText" class="report-text"></div>
+      </article>
+
+      <article class="card">
+        <h3>Style d’apprentissage sportif</h3>
+        <div id="learningText" class="report-text"></div>
+      </article>
+
+      <article class="card">
+        <h3>Lecture cognitive et motrice</h3>
+        <div id="cognitiveText" class="report-text"></div>
+      </article>
+
+      <article class="card">
+        <h3>Axes de progression</h3>
+        <div id="developmentText" class="report-text"></div>
+      </article>
+
+      <article class="card">
+        <h3>Plan de progression sur 4 semaines</h3>
+        <div id="planText" class="report-text"></div>
+      </article>
+
+      <article class="card">
+        <h3>Lecture joueur / parents / coach</h3>
+        <div id="audienceText" class="report-text"></div>
+      </article>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
