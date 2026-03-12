@@ -1,31 +1,42 @@
-# PMP A4P – Pack GitHub prêt à publier
 
-## Contenu
+# PMP A4P – Pack V2 complet
+
+Pack autonome pour GitHub Pages.
+
+## Fichiers inclus
+
 - `index.html`
 - `style.css`
+- `questions.js`
+- `report.js`
+- `radar.js`
 - `script.js`
+- `logo.svg`
 - `README.md`
 
 ## Ce que fait cette version
-- 136 questions intégrées dans un seul script
-- 120 questions mentales réparties sur 8 dimensions
-- 16 questions cognitives inspirées MBTI
-- calcul des scores sur 100
+
+- 136 questions déjà intégrées
+- 8 dimensions mentales
+- lecture cognitive inspirée MBTI
+- correspondance MBTI → préférences motrices
 - profils mentaux dominants
-- équivalence cognitive probable
-- conversion MBTI → préférence motrice
 - radar mental
-- rapport narratif imprimable
+- rapport long imprimable
 - export JSON
-- sauvegarde locale de progression
+- sauvegarde locale navigateur
 
-## Déploiement GitHub Pages
-1. Créer un nouveau dépôt GitHub.
-2. Déposer les 4 fichiers à la racine du dépôt.
-3. Aller dans `Settings` → `Pages`.
-4. Choisir `Deploy from branch` puis la branche `main`.
-5. Le lien sera de la forme :
-   `https://votre-utilisateur.github.io/nom-du-repo/`
+## Mise en ligne
 
-## Important
-Cette version est une base complète et exploitable commercialement comme outil de passation et de restitution. Si tu veux une version normée scientifiquement, multilingue ou reliée à une base de données, il faudra ajouter un back-end et une phase de validation psychométrique.
+1. Créer un dépôt GitHub vierge
+2. Dézipper ce pack
+3. Envoyer tous les fichiers à la racine du dépôt
+4. Aller dans **Settings > Pages**
+5. Choisir **Deploy from branch**
+6. Sélectionner **main** et **/root**
+7. Enregistrer
+
+## Remarque
+
+Cette version est une base professionnelle de commercialisation et d'accompagnement.
+Elle n'est pas une validation psychométrique scientifique ni un MBTI officiel.

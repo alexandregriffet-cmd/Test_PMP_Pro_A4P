@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 80" role="img" aria-label="A4P">
+<defs><linearGradient id="g" x1="0" x2="1"><stop stop-color="#0b4fd9"/><stop offset="1" stop-color="#13b8ff"/></linearGradient></defs>
+<rect x="2" y="2" width="236" height="76" rx="18" fill="#0f172a"/>
+<rect x="8" y="8" width="64" height="64" rx="16" fill="url(#g)"/>
+<text x="40" y="50" font-size="28" text-anchor="middle" font-family="Arial" font-weight="700" fill="white">A4P</text>
+<text x="88" y="35" font-size="22" font-family="Arial" font-weight="700" fill="white">Académie de Performances</text>
+<text x="88" y="58" font-size="14" font-family="Arial" fill="#cbd5e1">Profil Mental de Performance</text>
+</svg>
