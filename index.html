@@ -1,129 +1,43 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PMP A4P – Pack V2 complet</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profil Mental de Performance – A4P</title>
+  <style>
+    body{font-family:Arial,sans-serif;background:#f3f5f9;margin:0;padding:40px;text-align:center;color:#1f2937}
+    .container{max-width:920px;margin:auto;background:#fff;padding:40px;border-radius:12px;box-shadow:0 15px 40px rgba(0,0,0,.1)}
+    .logo{max-width:240px;width:100%;height:auto;display:block;margin:0 auto 20px}
+    .badge{background:#e8edf5;display:inline-block;padding:8px 14px;border-radius:20px;font-size:14px;margin-bottom:15px;color:#1e3a5f}
+    h1{font-size:36px;margin:0 0 12px;color:#111827}
+    .subtitle{font-size:18px;color:#555;margin:0 auto 28px;max-width:760px;line-height:1.5}
+    .start-btn{display:inline-block;background:#1e3a5f;color:#fff;padding:16px 32px;border:none;border-radius:8px;font-size:18px;cursor:pointer;margin-top:10px;text-decoration:none}
+    .start-btn:hover{background:#294d7a}
+    .section{margin-top:40px;text-align:left}
+    h2{color:#1e3a5f;margin-top:0}
+    ul{line-height:1.8}
+    .note{margin-top:20px;font-size:14px;color:#6b7280}
+  </style>
 </head>
 <body>
-  <div class="wrapper">
-    <header class="hero">
-      <div class="hero-copy">
-        <span class="badge">Pack V2 complet – GitHub Pages</span>
-        <h1>Profil Mental de Performance – A4P</h1>
-        <p class="lead">Version avancée du test A4P avec 136 questions intégrées, 8 dimensions mentales, équivalence cognitive inspirée MBTI, correspondance préférences motrices, radar mental et rapport long imprimable.</p>
-      </div>
-      <img src="logo.svg" alt="Logo A4P" />
-    </header>
-
-    <main id="app">
-      <section id="screen-intro" class="screen active card">
-        <h2>Avant de commencer</h2>
-        <p class="lead">Cet outil est pensé comme une base robuste pour commercialiser ton test sur GitHub Pages. Il contient déjà la structure complète pour une mise en ligne immédiate sur un dépôt vierge.</p>
-        <div class="grid-2">
-          <div class="kpi">
-            <div class="label">Ce que le test contient</div>
-            <ul>
-              <li>120 questions mentales</li>
-              <li>16 questions cognitives</li>
-              <li>8 dimensions sur 100</li>
-              <li>3 profils mentaux dominants</li>
-              <li>Lecture inspirée MBTI</li>
-              <li>Préférence motrice associée</li>
-            </ul>
-          </div>
-          <div class="kpi">
-            <div class="label">Ce que le rapport restitue</div>
-            <ul>
-              <li>Indice global A4P</li>
-              <li>Indice pression</li>
-              <li>Indice stabilité</li>
-              <li>Radar mental</li>
-              <li>Axes de progression</li>
-              <li>Lecture jeune / parents / coach</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="grid-2">
-          <label>Nom du sportif
-            <input id="athleteName" type="text" placeholder="Prénom Nom" />
-          </label>
-          <label>Âge
-            <input id="athleteAge" type="number" min="10" max="99" placeholder="15" />
-          </label>
-          <label>Sport
-            <input id="athleteSport" type="text" placeholder="Football, rugby, tennis..." />
-          </label>
-          <label>Club / structure
-            <input id="athleteClub" type="text" placeholder="Club, lycée, académie..." />
-          </label>
-        </div>
-
-        <div class="note">
-          <strong>Important :</strong> cette lecture MBTI est une équivalence de travail pour l'accompagnement. Elle ne constitue pas un MBTI officiel. La préférence motrice associée reste un repère pédagogique à confirmer sur le terrain.
-        </div>
-
-        <div class="btn-row">
-          <button id="startBtn" class="btn primary">Commencer le test</button>
-          <button id="demoBtn" class="btn">Voir une démo instantanée</button>
-        </div>
-      </section>
-
-      <section id="screen-test" class="screen card">
-        <div class="topbar">
-          <div>
-            <div id="blockLabel" class="badge">Bloc 1</div>
-            <div id="counter" class="muted" style="margin-top:8px">Question 1 / 136</div>
-          </div>
-          <div class="progress-wrap">
-            <div class="progress"><div id="progressBar" class="progress-bar"></div></div>
-            <div id="progressText" class="subtle" style="text-align:right;margin-top:6px">1%</div>
-          </div>
-        </div>
-
-        <div id="questionMount" class="question-shell"></div>
-
-        <div class="btn-row" style="justify-content:space-between">
-          <div class="btn-row">
-            <button id="prevBtn" class="btn">Précédent</button>
-            <button id="nextBtn" class="btn primary">Suivant</button>
-          </div>
-          <div class="btn-row">
-            <button id="saveBtn" class="btn ghost">Sauvegarder</button>
-            <button id="resumeBtn" class="btn ghost">Reprendre</button>
-          </div>
-        </div>
-      </section>
-
-      <section id="screen-report" class="screen">
-        <div class="card" style="margin-bottom:16px">
-          <div class="topbar">
-            <div>
-              <h2 style="margin:0">Rapport PMP A4P – V2</h2>
-              <div class="muted">Version professionnelle imprimable, exportable et stable pour GitHub Pages.</div>
-            </div>
-            <div class="btn-row">
-              <button id="printBtn" class="btn primary">Exporter / Imprimer PDF</button>
-              <button id="jsonBtn" class="btn">Exporter JSON</button>
-              <button id="restartBtn" class="btn ghost">Recommencer</button>
-            </div>
-          </div>
-        </div>
-        <article id="reportContent" class="report"></article>
-      </section>
-    </main>
-
-    <footer class="footer">
-      Pack V2 A4P – base autonome pour dépôt GitHub vierge.
-    </footer>
+  <div class="container">
+    <img src="logo-a4p.png" alt="Logo A4P" class="logo">
+    <div class="badge">Académie de Performances • A4P</div>
+    <h1>Profil Mental de Performance – A4P</h1>
+    <p class="subtitle">Module central du diagnostic mental A4P. Ce test évalue l’architecture du fonctionnement mental, les préférences cognitives, les dynamiques d’action et la cartographie de performance.</p>
+    <a class="start-btn" href="#test">Commencer le test PMP</a>
+    <div class="section">
+      <h2>Avant de commencer</h2>
+      <p>Ce module constitue la base du diagnostic A4P. Il s’inscrit dans un ensemble cohérent avec le CMP et le module psycho-émotionnel.</p>
+      <ul>
+        <li>136 questions</li>
+        <li>8 dimensions mentales</li>
+        <li>Radar mental</li>
+        <li>Rapport long imprimable</li>
+        <li>Lecture pédagogique jeune / parent / coach</li>
+      </ul>
+      <p class="note">Important : cette version corrige uniquement la page d’accueil. Le moteur du test, le scoring et le rapport doivent rester inchangés dans ton dépôt principal.</p>
+    </div>
   </div>
-
-  <script src="questions.js"></script>
-  <script src="radar.js"></script>
-  <script src="report.js"></script>
-  <script src="script.js"></script>
 </body>
 </html>
